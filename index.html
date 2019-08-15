@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js">
+
+</script><script>	
+$(function(){
+	$(".send").click(function(){
+		var v = $('.content').val();
+		$('.content').val('');
+		var $content = $('<div class="text">' + v + "</div>");
+		$screen =  $(document.getElementById("screen"));
+		var top = Math.random() * $screen.height()+40;
+         $content.css({
+                        top: top -10+ "px",
+                        left: 40
+                    });
+		$(".show").append($content);
+		$content.animate({
+                        left: $screen.width()+80-$content.width()
+                    }, 8000, function() {
+                        $(this).remove();
+		});
+		
+
+});
+	$('.delete').click(function() {
+                    $('.show').empty();
+                });
+});
+
+
+
+
+	</script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="aa.css">
+
+	<title></title>
+</head>
+<body>
+	<div class="dm">
+		<div id="screen">
+			<div class="show">
+				
+			</div>
+		</div>
+		<div class="row ">
+			<div class=" text-center col-md-6 col-md-offset-3 ">
+				<p>
+					<input type="text" class="content form-control" placeholder="说点什么?" >
+				</p>
+			</div>
+			<div class="col-md-6 col-md-offset-3">
+				
+					<p>
+						<input type="button" value="发射" class="send btn btn-primary" >
+						<input type="button" value="清屏" class="delete btn btn-danger" >
+					</p>
+			
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>
